@@ -3,6 +3,12 @@
 if [ -z $1 ]
 then 
 	echo "No parameters is passed!"
+	echo "usage: devops01b.sh [-volumes] [-cpu] [-ram] [-network] [-all]"
+	echo "-volumes shows the information of disk"
+	echo "-cpu shows the information of cpu"
+	echo "-ram shows the information of ram"
+	echo "-network shows the information of network"
+	echo "-all shows all the information"
 elif [ $1 == "-volumes" ]
 then
 	df -h
