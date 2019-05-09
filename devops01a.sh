@@ -2,8 +2,9 @@
 # number of volumes, size of each volume, free space on each volume
 df -h
 # number cpus/cores, information about the cpus/core
+sysctl -n machdep.cpu.core_count
+sysctl -n machdep.cpu.brand_string
 # amount of ram, your mac address and ip address
-
-# b) periodically, stage this file and commit it locally in git
-
-# c) periodically commit this file to the remote GitHub repo
+hostinfo
+ifconfig en0 | awk '/ether/{print $2}'
+ifconfig en0 | awk '/inet/{print $2}'
