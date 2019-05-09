@@ -1,3 +1,4 @@
+#!/bin/sh
 # a) in folder DevOps01, create a bash script called devops01a.sh that gets information about your computer including:
 # number of volumes, size of each volume, free space on each volume
 df -h
