@@ -1,0 +1,19 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+Vagrant.configure("2") do |config|
+  # Backend
+  config.vm.define "backEnd" do |backEnd|
+    backEnd.vm.box = "ubuntu/xenial64"
+	backEnd.vm.network "private_network", ip: "192.168.33.101"
+    backEnd.vm.synced_folder "./sharedBack", "/vagrant_data"
+	backEnd.vm.provision "shell", path: "./sharedBack/backend.sh"
+  end
+
+  # Frontend
+  config.vm.define "frontEnd" do |frontEnd|
+    frontEnd.vm.box = "ubuntu/xenial64"
+	frontEnd.vm.network "private_network", ip: "192.168.33.102"
+    frontEnd.vm.synced_folder "./sharedFront", "/vagrant_data"
+	frontEnd.vm.provision "shell", path: "./sharedFront/frontend.sh"
+  end
+end
